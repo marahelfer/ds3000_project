@@ -1,0 +1,38 @@
+import pandas as pd
+import requests
+from bs4 import BeautifulSoup
+import numpy as np
+import matplotlib.pyplot as plt
+
+#Mara: One Type of Visualization, Numerical Summaries
+#URL of the webpage with the table
+url = "https://educationdata.org/college-enrollment-statistics"
+response = requests.get(url)
+
+# Parse the HTML content
+soup = BeautifulSoup(response.content, 'html.parser')
+
+#find the table
+table = soup.find('table', {'class': 'table-responsive-mobile'})
+
+#get Rows
+rows = table.find_all('tr')
+
+#empty lists to hold the scraped data
+data = []
+headers = []
+
+#Headers
+for th in rows[0].find_all('th'):
+    headers.append(th.text.strip())
+
+# Extract rows
+for row in rows[1:]:
+    columns = row.find_all('td')
+    data.append([column.text.strip() for column in columns])
+
+enrollment_df = pd.DataFrame(data, columns=headers)
+print(enrollment_df)
+
+
+

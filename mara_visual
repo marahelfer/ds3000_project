@@ -34,5 +34,42 @@ for row in rows[1:]:
 enrollment_df = pd.DataFrame(data, columns=headers)
 print(enrollment_df)
 
+#year vs. Total College Student Enrollment
+x = enrollment_df['Year']
+y = enrollment_df['Total Enrollment']
+plt.figure(figsize=(10, 6))
+plt.plot(x, y)
 
+#labels
+plt.xlabel("Years")
+plt.ylabel("Total Enrollment of Students (Million) ")
+plt.title("Total College Enrollment through the years")
 
+#Invert Data to make more sense because data origionally displayed non-chronologically
+plt.gca().invert_xaxis()
+plt.gca().invert_yaxis()
+
+# Rotate x-axis labels and limit the number of words
+plt.xticks(ticks=x[::3], rotation=45)
+plt.yticks(ticks=y[::4], rotation=20)
+plt.show()
+
+#Enrollment vs. % of Public Institution Enrollment 
+x = enrollment_df['Total Enrollment']
+y = enrollment_df['% Public Institution Enrollment']
+plt.figure(figsize=(10, 6))
+plt.plot(x, y)
+
+#labels
+plt.xlabel("Total Enrollment of Students (Million) ")
+plt.ylabel("% of Enrollement in a Public Institution")
+plt.title("Total College Enrollment vs. % of Public Institution")
+
+#Invert Data to make more sense because data origionally displayed non-chronologically
+plt.gca().invert_xaxis()
+plt.gca().invert_yaxis()
+
+# Rotate x-axis labels and limit the number of words
+plt.xticks(ticks=x[::3], rotation=45)
+plt.yticks(ticks=y[::2], rotation=15)
+plt.show()

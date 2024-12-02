@@ -1,11 +1,25 @@
 # ds3000_project
 
 
+**Preliminary discussion and analysis of ML 1**
+
+Discussion of visualization:
+
+The scatter plot strongly shows a good relationship between %Female Enrollment and %Racial or Ethnic Minority Enrollment, suggesting a positive trend where higher %racial or higher %ethnic minority representation corresponds to an increase in %female enrollment. This potential correlation is visually evident, as the data points generally rise from left to right, implying a connection between institutional diversity and gender equity. While the trend suggests a positive correlation, it is unclear whether the relationship is strictly linear or exhibits a more complex pattern. The data points themselves are clustered at 40-50% Racial or Ethnic Minority with a high percent female  enrollment, whereas there's no cluster at lower percent Racial or Ethnic Minority values. This does make sense because when there are more applications for minorities, there would likely be a positive correlation to higher female percentage enrollments. Also, at lower minority enrollments, values appear more dispersed, suggesting variability in female enrollment percentages at those levels. 
+
+Analysis of code:
+
+The code employs standard linear regression techniques, such as adding the column of ones to encompass the bias aspect of the features. This suggests Employing the ManualLinearRegression model(which can also be confirmed because it's the class used to develop the graphing functions. The graphing functions use mathematical operations to calculate the slope, intercept, and R² score, providing insights into how minority enrollment influences female enrollment. However, it is essential to recognize that relying solely on these two variables may oversimplify broader diversity trends since external factors like institutional policies, geographic influences, or socioeconomic contexts likely play significant roles in the acceptance and enrollment of minorities in colleges. Furthermore, the assumption of independence in the dataset, though supported by the random sampling of colleges, may not account for systemic biases in data collection or representation. A lot of colleges may have inherent biases which may be unbeknownst to many aspiring college students, and therefore the model does not account for qualitative factors, such as biases in the human college admission process.
+
+Ethical considerations:
+
+The analysis of the relationship between % Female Enrollment and % Racial or Ethnic Minority Enrollment raises several ethical considerations. Simplifying diversity into just two variables overlooks its multidimensional nature, including socioeconomic, geographic, and institutional factors. Sampling biases, such as the underrepresentation of certain types of colleges, and neglecting temporal and regional contexts may skew conclusions. Defining thresholds like “high enrollment” or diversity benchmarks introduces implicit biases, potentially masking structural inequalities in access and retention for underrepresented groups. To mitigate these concerns, future work should incorporate additional variables, provide historical and contextual annotations, explore intersectionality, ensure representative sampling, and clearly communicate the model’s assumptions and limitations to whoever is reviewing the model. By addressing these factors, the analysis can better account for the complexities of diversity in higher education.
+
+Further developments:
+
+To further enrich the analysis, incorporating non-linear regression models, such as polynomial regression, could provide deeper insights into potential complexities in the relationship between % Female Enrollment and % Racial or Ethnic Minority Enrollment. The scatter plot suggests variability in female enrollment percentages at lower minority enrollment values and clustering at higher minority enrollment percentages. A non-linear approach, such as polynomial regression, could better capture these trends compared to a linear model. Additionally, exploring interaction effects between % Racial or Ethnic Minority Enrollment and other variables, such as institutional size, geographic location, or type (ex: public vs. private), could help identify how these factors jointly influence female enrollment rates. Including temporal data could also uncover changes in these trends over time, particularly in response to policy shifts or societal events like the COVID-19 pandemic. Expanding the dataset to include socioeconomic variables and retention rates would provide a more holistic view of diversity efforts and their impact. 
+
 **Preliminary discussion and analysis of ML 2**
-
-The scatter plot shows the % Female Enrollment vs. % Racial or Ethnic Minority Enrollment. The graph shows a possible positive trend between the two variables, because we see a general increase in % Female enrollment, as % Racial or Ethnic Minority increases.
-
-Although the model does suggest a pattern for a positive correlation, we're unsure whether this suggests a linear relationship or not. In terms of linearity, the scatterplot does exhibit a plausible trend line going through the points to make a regression line fit the model. The data does suggest independence as the studies were generated randomly from random colleges.
 
 Overview:
 Our preliminary results of ML2 train the classifier to be able to identify wether a year or a college/institution enrollment percentage combination of the two, corresponds with the "High Enrollment" level. From this model, high enrollment is defined as greater than 15,000. The decision_function gives us the distance from the data point to the feature value.
